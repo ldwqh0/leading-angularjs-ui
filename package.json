@@ -1,6 +1,6 @@
 {
   "name": "leading-angularjs-ui",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A Angularjs 1.5+ ui components for leadingsoft",
   "main": "./dist/leading-angularjs-ui.js",
   "scripts": {

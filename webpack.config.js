@@ -10,7 +10,7 @@ module.exports = {
   },
   externals: {
     angular: 'angular',
-    jquery: 'jQuery',
+    jquery: 'jquery',
     echarts: 'echarts'
   },
   module: {
