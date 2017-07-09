@@ -1,3 +1,19 @@
-.radio {
+radio .radio {
   display: inline-block;
+  cursor: pointer;
+  span.checker {
+    display: inline-block;
+    height: 19px;
+    width: 19px;
+    background-image: url("../checker/sprite.png");
+    background-position: 0 -278px;
+    overflow: hidden;
+    margin-bottom: -4px;
+    input {
+      opacity: 0;
+    }
+  }
+  span.checked {
+    background-position: -72px -278px;
+  }
 }
