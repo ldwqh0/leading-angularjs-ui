@@ -5,7 +5,13 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'leading-angularjs-ui.js'
+    filename: 'leading-angularjs-ui.js',
+    libraryTarget: 'commonjs2'
+  },
+  externals: {
+    angular: 'angular',
+    jquery: 'jquery',
+    echarts: 'echarts'
   },
   module: {
     rules: [{
