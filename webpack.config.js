@@ -6,11 +6,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'leading-angularjs-ui.js',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'umd'
   },
   externals: {
     angular: 'angular',
-    jquery: 'jquery',
+    jquery: 'jQuery',
     echarts: 'echarts'
   },
   module: {
