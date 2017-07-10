@@ -11,7 +11,8 @@ module.exports = {
   externals: {
     angular: 'angular',
     jquery: 'jquery',
-    echarts: 'echarts'
+    echarts: 'echarts',
+    moment: 'moment'
   },
   module: {
     rules: [{
