@@ -43,7 +43,6 @@ function CheckerController ($scope) {
     } else {
       ctrl.ngModel = v
     }
-
   })
 }
 

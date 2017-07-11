@@ -2,7 +2,7 @@ import module from '../module'
 import './radio.less'
 let component = {
   template: `<label class="radio">
-               <span class="checker" ng-class="{'checked':$ctrl.ngModel===$ctrl.ngValue}">
+               <span class="checker" ng-class="{'checked':$ctrl.ngModel==$ctrl.ngValue}">
                  <input ng-required="$ctrl.required" ng-value="$ctrl.ngValue" ng-model="$ctrl.ngModel" name="{{$ctrl.name}}" type="radio">
                </span>
                <span>{{$ctrl.heading}}</span>
@@ -11,7 +11,7 @@ let component = {
     heading: '@',
     name: '@',
     ngModel: '=',
-    ngValue: '='
+    ngValue: '@'
   },
   controller: RadioController
 }
