@@ -5,7 +5,7 @@ import module from '../module'
 let component = {
   template: `<label class="checkbox">
                <span class="checker" ng-class="{checked:$ctrl.state}">
-                 <input type="checkbox" ng-model="$ctrl.state">
+                 <input type="checkbox" ng-model="$ctrl.state" />
                </span>
                <span>{{$ctrl.heading}}</span>
              </label>`,
