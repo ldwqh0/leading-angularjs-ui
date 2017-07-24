@@ -5,7 +5,7 @@ import module from '../module'
 let component = {
   template: `<label class="checkbox">
                <span class="checker" ng-class="{checked:$ctrl.state}">
-                 <input type="checkbox" ng-model="$ctrl.state" />
+                 <input type="checkbox" ng-model="$ctrl.state" ng-change="$ctrl.change()" ng-disabled="$ctrl.disabled" />
                </span>
                <span>{{$ctrl.heading}}</span>
              </label>`,
@@ -13,37 +13,39 @@ let component = {
   bindings: {
     ngModel: '=',
     ngTrueValue: '<?',
-    heading: '@'
+    heading: '@',
+    ngFalseValue: '<?',
+    ngChange: '&'
   }
 }
 
-CheckerController.inject = ['$scope']
-function CheckerController ($scope) {
+CheckerController.inject = ['$scope', '$element']
+
+function CheckerController ($scope, $element) {
   let ctrl = this
   ctrl.state = false
+  ctrl.ngTrueValue = true
   $scope.$watch('$ctrl.ngModel', v => {
-    if (ctrl.ngTrueValue) {
-      if (ctrl.ngTrueValue === v) {
-        ctrl.state = true
-      } else {
-        ctrl.state = false
-      }
-    } else {
-      ctrl.state = v
-    }
+    ctrl.state = ctrl.ngTrueValue === v
   })
 
-  $scope.$watch('$ctrl.state', v => {
-    if (ctrl.ngTrueValue) {
-      if (v) {
-        ctrl.ngModel = ctrl.ngTrueValue
-      } else {
-        ctrl.ngModel = undefined
-      }
-    } else {
-      ctrl.ngModel = v
-    }
+  $scope.$watch(() => {
+    return $element.attr('disabled')
+  }, v => {
+    ctrl.disabled = v === 'disabled'
   })
+
+  /**
+   * 值改变事件
+   */
+  ctrl.change = function () {
+    if (ctrl.state) {
+      ctrl.ngModel = ctrl.ngTrueValue
+    } else {
+      ctrl.ngModel = ctrl.ngFalseValue
+    }
+    ctrl.ngChange()
+  }
 }
 
 module.component('checker', component)
